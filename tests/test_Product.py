@@ -3,3 +3,29 @@ def test_Product_init(product):
     assert product.description == "512GB, Gray space"
     assert product.quantity == 8
     assert product.price == 210000.00
+
+
+def test_Product_new_product(new_product):
+    new_product1 = new_product
+    assert new_product1.name == "Samsung Galaxy S23 Ultra"
+    assert new_product1.description == '256GB, Серый цвет, 200MP камера'
+    assert new_product1.price == 180000.0
+    assert new_product1.quantity == 10
+
+def test_Product_new_product_not_in_products(new_product_not_in_products):
+    new_product1 = new_product_not_in_products
+    assert new_product1.name == "Iphone 15 Pro Max"
+    assert new_product1.description == '512GB, Gray space'
+    assert new_product1.price == 250000.0
+    assert new_product1.quantity == 2
+
+def test_Product_price(capsys, product):
+    product.price = -100
+    message = capsys.readouterr()
+    assert message.out.strip() == 'Цена не должна быть нулевая или отрицательная'
+    product.price = 0
+    message = capsys.readouterr()
+    assert message.out.strip() == 'Цена не должна быть нулевая или отрицательная'
+    product.price = 100
+    assert product.price == 100
+
