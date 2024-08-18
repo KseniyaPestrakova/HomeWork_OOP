@@ -21,11 +21,17 @@ class Category:
         Category.category_count += 1
         Category.product_count = len(products)
 
+    def __str__(self):
+        quantity = 0
+        for product in self.__products:
+            quantity += product.quantity
+        return f'{self.name}, количество продуктов: {quantity} шт.'
+
     @property
     def products(self) -> Any:
         products_str = ""
         for product in self.__products:
-            products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт."
+            products_str += f"{str(product)}"
         return products_str
 
     def add_product(self, product: Product) -> Any:
