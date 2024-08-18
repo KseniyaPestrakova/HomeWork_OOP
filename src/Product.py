@@ -17,15 +17,15 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-    def __str__(self):
-        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+    def __str__(self) -> Any:
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
-    def __add__(self, other):
+    def __add__(self, other: Any) -> Any:
         return self.__price * self.quantity + other.__price * other.quantity
 
     @classmethod
     def new_product(cls, new_product: dict, products_list: list) -> Any:
-        '''Классметод для добавления нового продукта с проверкой на уже существующие продукты в списке продуктов'''
+        """Классметод для добавления нового продукта с проверкой на уже существующие продукты в списке продуктов"""
         for product in products_list:
             if new_product["name"] == product.name:
                 product.quantity += new_product["quantity"]
@@ -39,12 +39,12 @@ class Product:
 
     @property
     def price(self) -> Any:
-        '''Геттер для вывода цены'''
+        """Геттер для вывода цены"""
         return self.__price
 
     @price.setter
     def price(self, new_price: float) -> Any:
-        '''Сеттер для установления новой цены с проверкой на нулевые и отрицательные значения'''
+        """Сеттер для установления новой цены с проверкой на нулевые и отрицательные значения"""
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
         else:
