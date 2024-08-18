@@ -2,6 +2,7 @@ import pytest
 
 from src.Category import Category
 from src.Product import Product
+from src.product_iterator import ProductIterator
 
 
 @pytest.fixture
@@ -68,3 +69,7 @@ def new_product_not_in_products():
             Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
         ]
         )
+
+@pytest.fixture
+def product_iterator(category1):
+    return ProductIterator(category1)
