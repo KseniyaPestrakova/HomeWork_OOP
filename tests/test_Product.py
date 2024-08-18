@@ -29,3 +29,10 @@ def test_Product_price(capsys, product):
     product.price = 100
     assert product.price == 100
 
+def test_product_add(product, product1):
+    assert (product + product1) == 2130000.0
+
+def test_product_str(product):
+    assert str(product) == 'Iphone 15, 210000.0 руб. Остаток: 8 шт.'
+
+

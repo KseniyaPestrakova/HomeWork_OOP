@@ -37,6 +37,15 @@ def product():
         quantity=8
     )
 
+@pytest.fixture
+def product1():
+    return Product(
+        name="Iphone 14 Pro Max",
+        description="512GB, Black",
+        price=150000.0,
+        quantity=3
+    )
+
 
 @pytest.fixture
 def new_product():
