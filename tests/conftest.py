@@ -2,6 +2,7 @@ import pytest
 
 from src.Category import Category
 from src.Product import Product
+from src.product_iterator import ProductIterator
 
 
 @pytest.fixture
@@ -37,6 +38,15 @@ def product():
         quantity=8
     )
 
+@pytest.fixture
+def product1():
+    return Product(
+        name="Iphone 14 Pro Max",
+        description="512GB, Black",
+        price=150000.0,
+        quantity=3
+    )
+
 
 @pytest.fixture
 def new_product():
@@ -59,3 +69,7 @@ def new_product_not_in_products():
             Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
         ]
         )
+
+@pytest.fixture
+def product_iterator(category1):
+    return ProductIterator(category1)
