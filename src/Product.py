@@ -25,7 +25,6 @@ class Product:
             return self.__price * self.quantity + other.__price * other.quantity
         raise TypeError
 
-
     @classmethod
     def new_product(cls, new_product: dict, products_list: list) -> Any:
         """Классметод для добавления нового продукта с проверкой на уже существующие продукты в списке продуктов"""
