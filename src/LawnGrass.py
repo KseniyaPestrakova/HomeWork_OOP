@@ -1,3 +1,5 @@
+from typing import Any
+
 from src.Product import Product
 
 
@@ -8,3 +10,8 @@ class LawnGrass(Product):
         self.country = country
         self.germination_period = germination_period
         self.color = color
+
+    def __add__(self, other: Any) -> Any:
+        if type(other) is LawnGrass:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError

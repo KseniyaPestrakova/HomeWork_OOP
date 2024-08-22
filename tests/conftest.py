@@ -1,7 +1,9 @@
 import pytest
 
 from src.Category import Category
+from src.LawnGrass import LawnGrass
 from src.Product import Product
+from src.Smartphone import Smartphone
 from src.product_iterator import ProductIterator
 
 
@@ -59,6 +61,7 @@ def new_product():
         ]
         )
 
+
 @pytest.fixture
 def new_product_not_in_products():
     return Product.new_product(
@@ -70,6 +73,61 @@ def new_product_not_in_products():
         ]
         )
 
+
 @pytest.fixture
 def product_iterator(category1):
     return ProductIterator(category1)
+
+
+@pytest.fixture
+def smartphone1():
+    return Smartphone(
+        name="HUAWEI",
+        description="Популярные смартфоны",
+        price=20000.0,
+        quantity=10,
+        efficiency=90.0,
+        model='nova',
+        memory=128,
+        color='White'
+    )
+
+
+@pytest.fixture
+def smartphone2():
+    return Smartphone(
+        name="HUAWEI",
+        description="Популярные смартфоны",
+        price=50000.0,
+        quantity=5,
+        efficiency=95.0,
+        model='Pura',
+        memory=256,
+        color='Black'
+    )
+
+
+@pytest.fixture
+def lawngrass1():
+    return LawnGrass(
+        name="Газонная трава 3",
+        description="Выносливая трава",
+        price=600.0,
+        quantity=60,
+        country='Russia',
+        germination_period="10 дней",
+        color='Ярко-зеленый'
+    )
+
+
+@pytest.fixture
+def lawngrass2():
+    return LawnGrass(
+        name="Газонная трава 4",
+        description="Элитная трава",
+        price=900.0,
+        quantity=30,
+        country='France',
+        germination_period="5 дней",
+        color='Ярко-зеленый'
+    )
