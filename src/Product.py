@@ -19,7 +19,7 @@ class Product(BaseProduct, PrintMixin):
         self.description = description
         self.__price = price
         self.quantity = quantity
-        super().__init__()
+        super().__init__(name, description, price, quantity)
 
     def __str__(self) -> Any:
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
