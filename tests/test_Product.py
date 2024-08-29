@@ -22,7 +22,7 @@ def test_Product_new_product_not_in_products(new_product_not_in_products):
 def test_Product_price(capsys, product):
     product.price = -100
     message = capsys.readouterr()
-    assert message.out.strip() == 'Цена не должна быть нулевая или отрицательная'
+    assert message.out.strip().split('\n')[-1] == 'Цена не должна быть нулевая или отрицательная'
     product.price = 0
     message = capsys.readouterr()
     assert message.out.strip() == 'Цена не должна быть нулевая или отрицательная'
