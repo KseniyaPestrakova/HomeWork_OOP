@@ -40,6 +40,7 @@ def product():
         quantity=8
     )
 
+
 @pytest.fixture
 def product1():
     return Product(
@@ -59,7 +60,7 @@ def new_product():
             Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
             Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
         ]
-        )
+    )
 
 
 @pytest.fixture
@@ -71,7 +72,7 @@ def new_product_not_in_products():
             Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
             Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
         ]
-        )
+    )
 
 
 @pytest.fixture
@@ -130,4 +131,14 @@ def lawngrass2():
         country='France',
         germination_period="5 дней",
         color='Ярко-зеленый'
+    )
+
+
+@pytest.fixture
+def new_product_without_quantity():
+    return Product(
+        name="Iphone 16 Pro Max",
+        description="512GB, Black",
+        price=250000.0,
+        quantity=1
     )

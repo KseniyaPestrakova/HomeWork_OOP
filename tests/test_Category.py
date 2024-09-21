@@ -1,4 +1,5 @@
 import pytest
+from src.Product import Product
 
 
 def test_category(category1, category2):
@@ -27,3 +28,14 @@ def test_category_add(category2):
 def test_add_product_error(product, category2):
     with pytest.raises(TypeError):
         category2.add_product("Not a product")
+
+
+def test_middle_price(category1):
+    assert category1.middle_price() == 195000.0
+
+
+def test_zero_quantity(capsys):
+    with pytest.raises(ValueError):
+        Product(name="Iphone 16 Pro Max", description="512GB, Black", price=250000.0, quantity=0)
+
+
